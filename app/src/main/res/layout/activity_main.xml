@@ -133,11 +133,11 @@
                     android:layout_height="40dp"
                     android:layout_marginStart="16dp"
                     android:layout_marginBottom="16dp"
-                    android:text="조별과제 기초주제"
-                    android:textSize="30sp"
+                    android:text="김은택의 발자국"
                     android:textColor="#FFFFFF"
-                    app:layout_constraintStart_toStartOf="@+id/imageButton1"
-                    app:layout_constraintBottom_toBottomOf="@+id/imageButton1"/>
+                    android:textSize="30sp"
+                    app:layout_constraintBottom_toBottomOf="@+id/imageButton1"
+                    app:layout_constraintStart_toStartOf="@+id/imageButton1" />
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <androidx.constraintlayout.widget.ConstraintLayout
