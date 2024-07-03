@@ -62,7 +62,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="-220dp"
         android:layout_marginTop="-340dp"
-        android:text="아티클10"
+        android:text="아티클1000"
         android:textAlignment="textStart"
         android:textColor="#FFFFFF"
         android:textSize="34sp"
