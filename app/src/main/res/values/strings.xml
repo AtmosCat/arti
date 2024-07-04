@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">arti</string>
+    <string name="passwordcheck">확인</string>
+    <string name="password">패스워드</string>
+    <string name="logo">TODO</string>
+    <string name="signup_name">회원가입</string>
+    <string name="id">아이디</string>
+    <string name="username">닉네임</string>
+    <string name="signup_button">회원가입하기</string>
 </resources>
