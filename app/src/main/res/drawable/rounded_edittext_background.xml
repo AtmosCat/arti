@@ -1,0 +1,8 @@
+<!-- rounded_edittext_background_inline.xml -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+    <!-- 배경색 -->
+    <solid android:color="@color/gray_light" />
+    <!-- 라운드 값 -->
+    <corners android:radius="10dp" />
+</shape>
