@@ -5,13 +5,79 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ContentsActivity">
+    tools:context=".MainActivity">
+
+    <TextView
+        android:layout_width="350dp"
+        android:layout_height="200dp"
+        android:layout_marginBottom="200dp"
+        android:text="점심 나가서 먹을 것 같아! 점심 나가서 먹을 것 같아! 점심 나가서 먹을 것 같아! 점심 나가서 먹을 것 같아! 점심 나가서 먹을 것 같아! 점심 나가서 먹을 것 같아! 점심 나가서 먹을 것 같아! 점심 나가서 먹을 것 같아! 점심 나가서 먹을 것 같아! 점심 나가서 먹을 것 같아! 점심 나가서 먹을 것 같아! 점심 나가서 먹을 것 같아! 점심 나가서 먹을 것 같아! 점심 나가서 먹을 것 같아! 점심 나가서 먹을 것 같아! 점심 나가서 먹을 것 같아! 점심 나가서 먹을 것 같아! "
+        android:textAlignment="viewStart"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/button"
+        android:layout_width="360dp"
+        android:layout_height="50dp"
+        android:layout_marginBottom="100dp"
+        android:text="더 보기"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.49"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="360dp"
+        android:layout_height="50dp"
+        android:background="@drawable/round"
+        android:backgroundTint="#00A1FF"
+        android:text="원본 링크 이동하기 →"
+        android:textColor="#FFFFFF"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        tools:layout_editor_absoluteX="25dp"
+        tools:layout_editor_absoluteY="654dp" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="420dp"
+        android:layout_height="275dp"
+        android:layout_marginTop="-500dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.555"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/cat" />
+
+    <TextView
+        android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Contents"
-        tools:layout_editor_absoluteX="166dp"
-        tools:layout_editor_absoluteY="338dp" />
+        android:layout_marginStart="-220dp"
+        android:layout_marginTop="-340dp"
+        android:text="아티클10"
+        android:textAlignment="textStart"
+        android:textColor="#FFFFFF"
+        android:textSize="34sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        tools:layout_editor_absoluteX="145dp"
+        tools:layout_editor_absoluteY="281dp" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
