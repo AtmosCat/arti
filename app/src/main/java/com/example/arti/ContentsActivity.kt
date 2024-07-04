@@ -1,6 +1,11 @@
 package com.example.arti
 
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
+import android.widget.Button
+import android.widget.ImageView
+import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -18,8 +23,39 @@ class ContentsActivity : AppCompatActivity() {
         }
 
         ContentsManager.createDefaultContents()
+        // ContentsClass의 데이터를 가져옵니다
+        val index:Int = intent.getIntExtra("index", 0)
+        // 인텐트 EXTRA로 index 값을 받아옵니다
 
+        val et_editor = findViewById<TextView>(R.id.et_editor)
+        val et_title = findViewById<TextView>(R.id.et_title)
+        et_editor.setText("${ContentsManager.myContents[index]._editor}의 추천 아티클")
+        et_title.setText(ContentsManager.myContents[index]._title)
+        // 타이틀 :: 제목, 에디터 이름
 
+        val et_reason = findViewById<TextView>(R.id.et_reason)
+        val et_contents = findViewById<TextView>(R.id.et_contents)
+        et_reason.setText("\" ${ContentsManager.myContents[index].reason} \"")
+        et_contents.setText(ContentsManager.myContents[index].contents)
+        // 본문 :: 이유, 내용요약
+
+        val img_title = findViewById<ImageView>(R.id.img_title)
+        val titleImage = ContentsManager.myContents[index].titleImage
+        img_title.setImageResource(titleImage.toInt())
+        // 이미지 :: 이미지 할당하기 (* R.drawable.img_000 은 알고보니 Int 값이었음!!)
+
+        val btn_outlink = findViewById<Button>(R.id.btn_outlink)
+        val outlink :String = "${ ContentsManager.myContents[index].outlink }"
+        btn_outlink.setOnClickListener() {
+            val intentOutlink = Intent(Intent.ACTION_VIEW, Uri.parse(outlink))
+            startActivity(intentOutlink)
+        }
+        // 링크 :: 버튼 할당하기
+
+        val btn_back = findViewById<ImageView>(R.id.btn_back)
+        btn_back.setOnClickListener() {
+            finish()
+        }
 
 
     }
