@@ -7,152 +7,192 @@
     android:layout_height="match_parent"
     tools:context=".SignUpActivity">
 
-    <FrameLayout
-        android:id="@+id/frameLayout"
-        android:layout_width="0dp"
-        android:layout_height="60dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <!-- 뒤로가기 버튼-->
 
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/iv_logo"
         android:layout_width="160dp"
         android:layout_height="45dp"
-        android:layout_marginTop="70dp"
+        android:layout_marginTop="100dp"
         android:contentDescription="@string/logo"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/frameLayout"
         app:srcCompat="@drawable/logo" />
 
+    <FrameLayout
+        android:id="@+id/frameLayout"
+        android:layout_width="0dp"
+        android:layout_height="60dp"
+        android:background="#95FFFFFF"
+        android:elevation="7dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" >
+
+        <ImageView
+            android:id="@+id/imageView4"
+            android:layout_width="20dp"
+            android:layout_height="30dp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginStart="10dp"
+            app:srcCompat="@drawable/back" />
+    </FrameLayout>
+
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/signup_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
+        android:textColor="@color/black"
         android:text="@string/signup_name"
-        app:layout_constraintEnd_toEndOf="@+id/imageView"
-        app:layout_constraintStart_toStartOf="@+id/imageView"
-        app:layout_constraintTop_toBottomOf="@+id/imageView"
+        app:layout_constraintEnd_toEndOf="@+id/iv_logo"
+        app:layout_constraintStart_toStartOf="@+id/iv_logo"
+        app:layout_constraintTop_toBottomOf="@+id/iv_logo"
         tools:ignore="HardcodedText" />
 
 
     <TextView
-        android:id="@+id/textView3"
+        android:id="@+id/id_title"
         android:layout_width="70dp"
         android:layout_height="20dp"
-        android:layout_marginTop="70dp"
+        android:layout_marginTop="60dp"
         android:text="@string/id"
-        app:layout_constraintEnd_toStartOf="@+id/editTextTextMultiLine"
+        android:textColor="@color/black"
+        app:layout_constraintEnd_toStartOf="@+id/edit_text_id"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintHorizontal_chainStyle="packed"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView"
-        tools:ignore="HardcodedText" />
+        app:layout_constraintTop_toBottomOf="@+id/signup_title"
+        tools:ignore="ExtraText,HardcodedText" />
 
     <TextView
-        android:id="@+id/textView4"
+        android:id="@+id/PW_title"
         android:layout_width="70dp"
-        android:layout_height="20dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="36dp"
         android:text="@string/password"
-        app:layout_constraintBottom_toBottomOf="@+id/editTextTextPassword"
-        app:layout_constraintEnd_toStartOf="@+id/editTextTextPassword"
+        android:textColor="@color/black"
+        app:layout_constraintEnd_toStartOf="@+id/edit_text_PW"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintHorizontal_chainStyle="packed"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/editTextTextPassword"
-        app:layout_constraintVertical_bias="0.32"
+        app:layout_constraintTop_toBottomOf="@+id/edit_text_id"
         tools:ignore="HardcodedText" />
 
     <TextView
-        android:id="@+id/textView5"
+        android:id="@+id/PW_check"
         android:layout_width="70dp"
         android:layout_height="20dp"
+        android:layout_marginTop="20dp"
+        android:textColor="@color/black"
         android:text="@string/passwordcheck"
-        app:layout_constraintBottom_toBottomOf="@+id/editTextTextMultiLine2"
-        app:layout_constraintEnd_toStartOf="@+id/editTextTextMultiLine2"
+
+        app:layout_constraintEnd_toStartOf="@+id/edit_text_PW_check"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintHorizontal_chainStyle="packed"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/editTextTextMultiLine2"
-        app:layout_constraintVertical_bias="0.48"
+        app:layout_constraintTop_toBottomOf="@+id/edit_text_PW"
         tools:ignore="HardcodedText" />
 
     <TextView
-        android:id="@+id/textView6"
+        android:id="@+id/username"
         android:layout_width="70dp"
         android:layout_height="20dp"
+        android:layout_marginTop="32dp"
         android:text="@string/username"
-        app:layout_constraintBottom_toBottomOf="@+id/editTextTextMultiLine3"
-        app:layout_constraintEnd_toStartOf="@+id/editTextTextMultiLine3"
+        android:textColor="@color/black"
+        app:layout_constraintEnd_toStartOf="@+id/edit_username"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintHorizontal_chainStyle="packed"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/editTextTextMultiLine3"
-        app:layout_constraintVertical_bias="0.44" />
+        app:layout_constraintTop_toBottomOf="@+id/edit_text_PW_check" />
 
     <EditText
-        android:id="@+id/editTextTextMultiLine"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:id="@+id/edit_text_id"
+        android:layout_width="210dp"
+        android:layout_height="44dp"
         android:layout_marginStart="20dp"
-        android:autofillHints="id"
+        android:autofillHints="name"
+        android:background="@drawable/rounded_edittext_background"
         android:ems="10"
         android:gravity="start|top"
+        android:hint="아이디를 입력하세요"
         android:inputType="textMultiLine"
-        app:layout_constraintBottom_toBottomOf="@+id/textView3"
+        android:padding="12dp"
+        android:textColorHint="@color/gray"
+        android:textSize="12dp"
+        app:layout_constraintBottom_toBottomOf="@+id/id_title"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/textView3"
-        app:layout_constraintTop_toTopOf="@+id/textView3"
+        app:layout_constraintStart_toEndOf="@+id/id_title"
+        app:layout_constraintTop_toTopOf="@+id/id_title"
         tools:ignore="LabelFor,MissingConstraints" />
 
     <EditText
-        android:id="@+id/editTextTextPassword"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:id="@+id/edit_text_PW"
+        android:layout_width="210dp"
+        android:layout_height="44dp"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="20dp"
-        android:autofillHints="password"
-        android:ems="10"
-        android:inputType="textPassword"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/textView4"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextMultiLine"
-        tools:ignore="LabelFor" />
-
-    <EditText
-        android:id="@+id/editTextTextMultiLine2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="12dp"
-        android:autofillHints="passwiord"
-        android:ems="10"
-        android:gravity="start|top"
-        android:inputType="textMultiLine"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/textView5"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPassword"
-        tools:ignore="LabelFor" />
-
-    <EditText
-        android:id="@+id/editTextTextMultiLine3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="20dp"
         android:autofillHints="name"
+        android:background="@drawable/rounded_edittext_background"
         android:ems="10"
         android:gravity="start|top"
+        android:hint="비밀번호를 입력하세요"
         android:inputType="textMultiLine"
+        android:padding="12dp"
+        android:textColorHint="@color/gray"
+        android:textSize="12dp"
+        app:layout_constraintBottom_toBottomOf="@+id/PW_title"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/textView6"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextMultiLine2"
+        app:layout_constraintStart_toEndOf="@+id/PW_title"
+        app:layout_constraintTop_toTopOf="@+id/PW_title"
+        app:layout_constraintVertical_bias="0.652"
+        tools:ignore="LabelFor" />
+
+    <EditText
+        android:id="@+id/edit_text_PW_check"
+        android:layout_width="210dp"
+        android:layout_height="44dp"
+        android:layout_marginStart="20dp"
+        android:autofillHints="name"
+        android:background="@drawable/rounded_edittext_background"
+        android:ems="10"
+        android:gravity="start|top"
+        android:hint="비밀번호를 한번 더 입력하세요."
+        android:inputType="textMultiLine"
+        android:padding="12dp"
+        android:textColorHint="@color/gray"
+        android:textSize="12dp"
+        app:layout_constraintBottom_toBottomOf="@+id/PW_check"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/PW_check"
+        app:layout_constraintTop_toTopOf="@+id/PW_check"
+        app:layout_constraintVertical_bias="0.48"
+        tools:ignore="LabelFor" />
+
+
+    <EditText
+        android:id="@+id/edit_username"
+        android:layout_width="210dp"
+        android:layout_height="44dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="10dp"
+        android:autofillHints="name"
+        android:background="@drawable/rounded_edittext_background"
+        android:hint="닉네임을 입력하세요."
+        android:inputType="textMultiLine"
+        android:padding="12dp"
+        android:textColorHint="@color/gray"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="@+id/username"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/username"
+        app:layout_constraintTop_toTopOf="@+id/username"
+        app:layout_constraintVertical_bias="0.676"
         tools:ignore="LabelFor" />
 
     <Button
@@ -160,12 +200,13 @@
         android:layout_width="297dp"
         android:layout_height="51dp"
         android:layout_marginTop="40dp"
-        android:background="#00A1FF"
+        android:background="@drawable/bt_round"
         android:text="@string/signup_button"
-        android:textColor="#FFFFFF"
+        android:textColor="@color/white"
+        android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextMultiLine3" />
+        app:layout_constraintTop_toBottomOf="@+id/edit_username" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
