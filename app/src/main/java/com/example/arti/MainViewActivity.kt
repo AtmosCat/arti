@@ -58,6 +58,48 @@ class MainViewActivity : AppCompatActivity() {
             }
         }
 
+
+        /// 은택, 허민이 테스트를 위해 버튼 하나만 뚫겠습니다
+        var btnContents1 = findViewById<ImageButton>(R.id.imageButton1)
+        var btnContents2 = findViewById<ImageButton>(R.id.imageButton2)
+        var btnContents3 = findViewById<ImageButton>(R.id.imageButton3)
+        var btnContents4 = findViewById<ImageButton>(R.id.imageButton4)
+        var btnContents5 = findViewById<ImageButton>(R.id.imageButton5)
+
+        btnContents1.setOnClickListener {
+            val intentContents = Intent(this, ContentsActivity::class.java)
+            intentContents.putExtra("index", 0) // index 값만 EXTRA로 넘겨주면 어떤 글인지 식별가능
+            startActivity(intentContents)
+            }
+
+        btnContents2.setOnClickListener {
+            val intentContents = Intent(this, ContentsActivity::class.java)
+            intentContents.putExtra("index", 1) // index 값만 EXTRA로 넘겨주면 어떤 글인지 식별가능
+            startActivity(intentContents)
+        }
+
+        btnContents3.setOnClickListener {
+            val intentContents = Intent(this, ContentsActivity::class.java)
+            intentContents.putExtra("index", 2) // index 값만 EXTRA로 넘겨주면 어떤 글인지 식별가능
+            startActivity(intentContents)
+        }
+
+        btnContents4.setOnClickListener {
+            val intentContents = Intent(this, ContentsActivity::class.java)
+            intentContents.putExtra("index", 3) // index 값만 EXTRA로 넘겨주면 어떤 글인지 식별가능
+            startActivity(intentContents)
+        }
+
+        btnContents5.setOnClickListener {
+            val intentContents = Intent(this, ContentsActivity::class.java)
+            intentContents.putExtra("index", 4) // index 값만 EXTRA로 넘겨주면 어떤 글인지 식별가능
+            startActivity(intentContents)
+        }
+
+
+
+
+
 //
 //        // 마이 페이지 버튼
 //        val myPageButton = findViewById<ImageButton>(R.id.myPageButton)
