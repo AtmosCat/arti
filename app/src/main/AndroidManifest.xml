@@ -12,6 +12,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Arti"
         tools:targetApi="31">
+<!--            android:theme="@style/Theme.AppCompat.Light.NoActionBar"-->
         <activity
             android:name=".ContentsActivity"
             android:exported="false" />

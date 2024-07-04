@@ -3,11 +3,14 @@ package com.example.arti
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
+import android.view.MotionEvent
+import android.view.View
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
+import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 
@@ -16,7 +19,7 @@ class ContentsActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_contents)
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
+        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.anywher_touch)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
@@ -24,7 +27,7 @@ class ContentsActivity : AppCompatActivity() {
 
         ContentsManager.createDefaultContents()
         // ContentsClass의 데이터를 가져옵니다
-        val index:Int = intent.getIntExtra("index", 0)
+        val index: Int = intent.getIntExtra("index", 0)
         // 인텐트 EXTRA로 index 값을 받아옵니다
 
         val et_editor = findViewById<TextView>(R.id.et_editor)
@@ -33,10 +36,16 @@ class ContentsActivity : AppCompatActivity() {
         et_title.setText(ContentsManager.myContents[index]._title)
         // 타이틀 :: 제목, 에디터 이름
 
+        var contents:String = if ( ContentsManager.myContents[index].contents.length > 250 ) {
+            ContentsManager.myContents[index].contents.substring(0, 250) + "..."
+        } else {
+            ContentsManager.myContents[index].contents
+        } // 본문 250자로 끊어주기
+
         val et_reason = findViewById<TextView>(R.id.et_reason)
         val et_contents = findViewById<TextView>(R.id.et_contents)
         et_reason.setText("\" ${ContentsManager.myContents[index].reason} \"")
-        et_contents.setText(ContentsManager.myContents[index].contents)
+        et_contents.setText(contents)
         // 본문 :: 이유, 내용요약
 
         val img_title = findViewById<ImageView>(R.id.img_title)
@@ -45,20 +54,53 @@ class ContentsActivity : AppCompatActivity() {
         // 이미지 :: 이미지 할당하기 (* R.drawable.img_000 은 알고보니 Int 값이었음!!)
 
         val btn_outlink = findViewById<Button>(R.id.btn_outlink)
-        val outlink :String = "${ ContentsManager.myContents[index].outlink }"
+        val outlink: String = "${ContentsManager.myContents[index].outlink}"
         btn_outlink.setOnClickListener() {
             val intentOutlink = Intent(Intent.ACTION_VIEW, Uri.parse(outlink))
             startActivity(intentOutlink)
         }
-        // 링크 :: 버튼 할당하기
+        // 외부링크 버튼 :: 링크 할당
 
         val btn_back = findViewById<ImageView>(R.id.btn_back)
         btn_back.setOnClickListener() {
             finish()
         }
+        // 뒤로가기 버튼
 
+        val btn_detail = findViewById<TextView>(R.id.btn_detail)
+        btn_detail.setOnClickListener(){
+            contents = ContentsManager.myContents[index].contents
+            et_contents.setText(contents)
+            btn_detail.visibility = View.INVISIBLE
+
+
+        }
+
+
+        // 화면 아무 곳이나 터치하면 on/off 되게 하고 싶었으나,
+//        콘스트레인트 레이아웃 (화면 전체)나
+//                android.R.id.content를 <View> 사용해도 안되길래
+//        일단 포기!
+
+//        val anywhere_touch = findViewById<ConstraintLayout>(R.id.anywher_touch)
+//        anywhere_touch.setOnClickListener() {
+//            finish()
+//        }
+//
+//        val anywhere_touch = findViewById<View>(android.R.id.content)
+//        anywhere_touch.setOnClickListener() {
+//            finish()
+//        }
+
+//        anywhere_touch.setOnTouchListener { v, event ->
+//            if (event.action == MotionEvent.ACTION_DOWN) {
+//             finish()
+//            }
+//            true
+//        }
 
     }
+
 }
 
 
