@@ -232,7 +232,17 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/edit_username" />
 
-
+    <TextView
+        android:id="@+id/pw_check_bt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="10dp"
+        android:text="확인"
+        android:textColor="@color/gray"
+        android:textSize="10sp"
+        app:layout_constraintBottom_toBottomOf="@+id/edit_text_PW_check"
+        app:layout_constraintEnd_toEndOf="@+id/edit_text_PW_check"
+        app:layout_constraintTop_toTopOf="@+id/edit_text_PW_check" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
