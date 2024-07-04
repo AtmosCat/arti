@@ -16,6 +16,12 @@ class ContentsActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+
+        ContentsManager.createDefaultContents()
+
+
+
+
     }
 }
 
@@ -27,7 +33,7 @@ class ContentsActivity : AppCompatActivity() {
 001번 글이면 001번 인스턴스의 모든 정보를 찾아줘!
  001. 이미지
  001. 제목
- 001. 제목번호
+ 001. 추천인
 
  001. 추천이유
  001. 본문
@@ -80,8 +86,8 @@ btn_back
 img_title
 타이틀 이미지
 
-et_title_num
-카테고리, 회차 (1줄)
+et_editor
+추천인
 
 et_title
 제목 (1-2줄, 25자)

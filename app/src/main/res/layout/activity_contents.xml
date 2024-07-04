@@ -48,23 +48,22 @@
                     android:layout_marginStart="20dp"
                     android:layout_marginEnd="20dp"
                     android:layout_marginBottom="20dp"
-                    android:text="스파르타를 듣게된 "
+                    android:text="스파르타를 듣게된 이유"
                     android:textColor="@color/white"
                     android:textSize="30dp"
                     android:textStyle="bold" />
 
                 <TextView
-                    android:id="@+id/et_title_num"
+                    android:id="@+id/et_editor"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_above="@+id/et_title"
                     android:layout_marginStart="20dp"
                     android:layout_marginBottom="5dp"
-                    android:text="아티클 01"
+                    android:text="데브민이 추천하는"
                     android:textColor="@color/white"
                     android:textSize="20dp"
-                    android:textStyle="bold"
-                    android:layout_above="@+id/et_title"
-                    />
+                    android:textStyle="bold" />
 
                 <!-- 뒤로가기 버튼-->
                 <ImageView
