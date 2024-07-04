@@ -70,7 +70,7 @@ class MyPage : AppCompatActivity() {
 
         val btn_withdrawl = findViewById<Button>(R.id.btn_withdrawl)
 
-        val btn_back = findViewById<ImageView>(R.id.iv_backButton)
+        val btn_backto = findViewById<ImageView>(R.id.iv_backButton)
 
         // 처음 마이페이지 들어갔을 때(수정 전) 항목별 값은 DB에서 끌어온 값으로 표시
         myPageNickname.setText("${userNickname}")
@@ -121,7 +121,7 @@ class MyPage : AppCompatActivity() {
             }
         }
 
-        btn_back.setOnClickListener{
+        btn_backto.setOnClickListener{
             finish()
         }
 
