@@ -57,6 +57,7 @@ class SignUpActivity : AppCompatActivity() {
 
 
             //닉네임 입력하기
+            val usernamedcheck = findViewById<TextView>(R.id.username_check)
             var existingUsername = arrayOf("챠챠싸","아티","아티클")
             if (username.text.toString() in existingUsername)
                 Toast.makeText(this, "중복된 닉네임이 있습니다.", Toast.LENGTH_SHORT).show()
