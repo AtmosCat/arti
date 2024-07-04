@@ -13,6 +13,7 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.example.arti.R
 
 class SignInActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -20,11 +21,11 @@ class SignInActivity : AppCompatActivity() {
         enableEdgeToEdge()
         setContentView(R.layout.activity_main)
 
-        val userId = findViewById<EditText>(R.id.et_signInId)
-        val userPw = findViewById<EditText>(R.id.et_signInPw)
+        val userId = findViewById<EditText>(R.id.et_signInIdd)
+        val userPw = findViewById<EditText>(R.id.et_signInPb)
 
-        val btn_mainSignIn = findViewById<Button>(R.id.btn_mainSignin)
-        val btn_mainSignUp = findViewById<Button>(R.id.btn_mainSignup)
+        val btn_mainSignIn = findViewById<Button>(R.id.btn_mainSignlg)
+        val btn_mainSignUp = findViewById<Button>(R.id.btn_mainSignhg)
 
         btn_mainSignIn.setOnClickListener{
             if (userId.text.isEmpty() == true || userPw.text.isEmpty() == true){
