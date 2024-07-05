@@ -12,6 +12,7 @@ import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import com.example.article.User
+import com.example.article.UserManager
 
 class SignUpActivity : AppCompatActivity() {
     private var isUserIDAvailable = false
@@ -19,7 +20,6 @@ class SignUpActivity : AppCompatActivity() {
     private var isUsernameAvailable = false
 
     // 유저정보 저장용 유저 리스트 생성
-    var userList = ArrayList<User>()
     var existingID = arrayOf("chacha", "arti", "article")
     var existingUsername = arrayOf("차차", "아티", "아티클")
 
@@ -80,22 +80,11 @@ class SignUpActivity : AppCompatActivity() {
 //                if (userPassword.text.toString() == userPasswordCallback.text.toString()) {
 //                    // 중복 체크 상태 확인
                     if (isUserIDAvailable && isPasswordConfirmed && isUsernameAvailable) {
-                        // 최종 컨펌된 유저 정보 저장
-                        var user1 = User(userID.text.toString(), username.text.toString(), userStartupField.text.toString(),
-                            userPassword.text.toString(), userPasswordCallback.text.toString())
-                        userList.add(user1)
-                        existingID = existingID.plus(userID.text.toString())
-                        existingUsername = existingUsername.plus(username.text.toString())
-
+                        // 최종 컨펌된 유저 정보 저장 at 데이터클래스
+                        UserManager.createUser(userID.text.toString(), username.text.toString(), userStartupField.text.toString(),
+                            userPassword.text.toString())
                         val intent = Intent(this, SignInActivity::class.java)
                         intent.putExtra("userid", userID.text.toString())
-                        intent.putExtra("userpw", userPassword.text.toString())
-                        intent.putExtra("user_name", username.text.toString())
-                        intent.putExtra("user_startupField", userStartupField.text.toString())
-//                        intent.putParcelableArrayListExtra("userList", userList)
-                        intent.putExtra("existingID", existingID)
-                        intent.putExtra("existingUsername", existingUsername)
-//                        intent.putExtra("user1", user1)
                         startActivity(intent)
                     } else {
                         Toast.makeText(this, "아이디 및 닉네임 중복 확인, 비밀번호 확인을 모두 완료해주세요.", Toast.LENGTH_SHORT).show()

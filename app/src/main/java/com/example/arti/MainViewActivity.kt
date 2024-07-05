@@ -61,8 +61,6 @@ class MainViewActivity : AppCompatActivity() {
             startActivity(myIntent123)
         }
 
-
-
         // 하단 세로 스크롤 버튼
         val bottomImageButton = arrayOf(
             findViewById<ImageView>(R.id.imageButton1),

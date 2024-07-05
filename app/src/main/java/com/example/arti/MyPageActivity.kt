@@ -14,6 +14,7 @@ import androidx.core.view.isInvisible
 import android.view.LayoutInflater
 import android.widget.TextView
 import androidx.appcompat.app.AlertDialog
+import com.example.article.UserManager
 
 class MyPageActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -53,18 +54,12 @@ class MyPageActivity : AppCompatActivity() {
         myPagePassword.isEnabled = false
         myPagePasswordCheck.isEnabled = false
 
-        // user1 인스턴스 생성 가정 시 코드
-//        var userNickname = user1.nickname
-//        var userStartupField = user1.startupField
-//        var userPassword = user1.password
-//        var userPasswordCheck = user1.passwordCheck
-
         // SignInActivity에서 유저 정보 끌어오기
         var userId = intent.getStringExtra("user1Id")
-        var userName = intent.getStringExtra("user1Name")
-        var userStartupField = intent.getStringExtra("user1StartupField")
-        var userPassword = intent.getStringExtra("user1Pw")
-        var userPasswordCheck = intent.getStringExtra("user1Pw")
+//        var userName = intent.getStringExtra("user1Name")
+//        var userStartupField = intent.getStringExtra("user1StartupField")
+//        var userPassword = intent.getStringExtra("user1Pw")
+//        var userPasswordCheck = intent.getStringExtra("user1Pw")
 
 
         // 저장 버튼은 invisible로
@@ -73,15 +68,16 @@ class MyPageActivity : AppCompatActivity() {
         btn_myPageSave.isInvisible = true
 
         val btn_withdrawl = findViewById<Button>(R.id.btn_withdrawl)
-
         val btn_back = findViewById<ImageView>(R.id.iv_backButton)
 
+        var myUser = UserManager.findUser(userId.toString())
+
         // 처음 마이페이지 들어갔을 때(수정 전) 항목별 값은 DB에서 끌어온 값으로 표시
-        myPageId.setText("${userId}")
-        myPageName.setText("${userName}")
-        myPageStartupField.setText("${userStartupField}")
-        myPagePassword.setText("${userPassword}")
-        myPagePasswordCheck.setText("${userPasswordCheck}")
+        myPageId.setText(myUser?.Id.toString())
+        myPageName.setText(myUser?.nickname.toString())
+        myPageStartupField.setText(myUser?.startupField.toString())
+        myPagePassword.setText("")
+        myPagePasswordCheck.setText("")
 
         // 수정 버튼 클릭하면 ->
         btn_myPageEdit.setOnClickListener{
@@ -100,14 +96,14 @@ class MyPageActivity : AppCompatActivity() {
                     Toast.makeText(this, "입력되지 않은 정보가 있습니다.", Toast.LENGTH_SHORT).show()
                 }
 
-                if (userPassword != userPasswordCheck) {
+                if (myPagePassword != myPagePasswordCheck) {
                     Toast.makeText(this, "비밀번호가 일치하지 않습니다.", Toast.LENGTH_SHORT).show()
                 } else {
-                    userId = myPageId.text.toString()
-                    userName = myPageName.text.toString()
-                    userStartupField = myPageStartupField.text.toString()
-                    userPassword = myPagePassword.text.toString()
-                    userPasswordCheck = myPagePasswordCheck.text.toString()
+                    myUser?.Id = myPageId.text.toString()
+                    myUser?.password = myPagePassword.text.toString()
+                    myUser?.nickname = myPageName.text.toString()
+                    myUser?.startupField = myPageStartupField.text.toString()
+
                     Toast.makeText(this, "수정사항이 저장되었습니다.", Toast.LENGTH_SHORT).show()
 
                     btn_myPageEdit.isInvisible = false
