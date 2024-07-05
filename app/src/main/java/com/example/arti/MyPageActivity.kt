@@ -54,14 +54,6 @@ class MyPageActivity : AppCompatActivity() {
         myPagePassword.isEnabled = false
         myPagePasswordCheck.isEnabled = false
 
-        // SignInActivity에서 유저 정보 끌어오기
-        var userId = intent.getStringExtra("user1Id")
-//        var userName = intent.getStringExtra("user1Name")
-//        var userStartupField = intent.getStringExtra("user1StartupField")
-//        var userPassword = intent.getStringExtra("user1Pw")
-//        var userPasswordCheck = intent.getStringExtra("user1Pw")
-
-
         // 저장 버튼은 invisible로
         val btn_myPageEdit = findViewById<Button>(R.id.btn_myPageEdit)
         val btn_myPageSave = findViewById<Button>(R.id.btn_myPageSave)
@@ -70,7 +62,13 @@ class MyPageActivity : AppCompatActivity() {
         val btn_withdrawl = findViewById<Button>(R.id.btn_withdrawl)
         val btn_back = findViewById<ImageView>(R.id.iv_backButton)
 
-        var myUser = UserManager.findUser(userId.toString())
+        // SignInActivity에서 유저 정보 끌어오기
+        var userId = intent.getStringExtra("user1Id") // 겟엑스트라 정보 끌어옴
+        var myUser = UserManager.findUser(userId.toString()) // 그걸로 유저 찾아냄.
+
+//        Toast.makeText(this, "테스트. 아이디 : ${userId}, 비번 : ${com.example.article.UserManager.findUser(userId.toString())?.password} ", Toast.LENGTH_SHORT).show()
+//        테스트 통과
+
 
         // 처음 마이페이지 들어갔을 때(수정 전) 항목별 값은 DB에서 끌어온 값으로 표시
         myPageId.setText(myUser?.Id.toString())

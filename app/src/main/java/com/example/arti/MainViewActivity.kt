@@ -3,9 +3,11 @@ package com.example.arti
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
+import android.os.UserManager
 import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.activity.result.ActivityResultLauncher
 import androidx.appcompat.app.AppCompatActivity
@@ -52,11 +54,16 @@ class MainViewActivity : AppCompatActivity() {
                 }
             }
         }
+        // Toast.makeText(this, "테스트. 아이디 : ${user1Id}, 비번 : ${com.example.article.UserManager.findUser(user1Id.toString())?.password} ", Toast.LENGTH_SHORT).show()
+        // 지금까지는 계정 확인 잘 됩니다
 
         // 마이 페이지 버튼
+        val user1Id = intent.getStringExtra("user1Id") // 인텐트에서 아이디 받아옵니다
+
         val myPageButton = findViewById<ImageButton>(R.id.myPageButton)
         myPageButton.setOnClickListener {
             val myIntent123 = Intent(this, MyPageActivity::class.java)
+            myIntent123.putExtra("user1Id", user1Id) // 엑스트라에 아이디 담아서 넘겨요
 //            resultLauncher.launch(myIntent1)
             startActivity(myIntent123)
         }
