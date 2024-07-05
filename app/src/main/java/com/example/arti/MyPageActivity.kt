@@ -1,5 +1,6 @@
 package com.example.arti
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
@@ -22,24 +23,6 @@ class MyPageActivity : AppCompatActivity() {
         enableEdgeToEdge()
         setContentView(R.layout.activity_my_page)
 
-        // 회원탈퇴 팝업 함수 - Dialog 활용
-        fun showPopup(){
-            val inflater = LayoutInflater.from(this)
-            val popupView = inflater.inflate(R.layout.mypage_withdrawl_check, null)
-            val textview :TextView = popupView.findViewById(R.id.withdrawl_popup)
-
-            val alertDialog = AlertDialog.Builder(this)
-
-                .setPositiveButton("탈퇴") {dialog, which ->
-                    Toast.makeText(applicationContext, "탈퇴되었습니다.", Toast.LENGTH_SHORT)
-                }
-                .setNeutralButton("취소", null)
-                .create()
-
-            alertDialog.setView(popupView)
-            alertDialog.show()
-        }
-
         // 마이페이지 항목별 변수 생성
         var myPageId = findViewById<EditText>(R.id.et_mypage_id)
         var myPageName = findViewById<EditText>(R.id.et_mypage_name)
@@ -48,6 +31,7 @@ class MyPageActivity : AppCompatActivity() {
         var myPagePasswordCheck = findViewById<EditText>(R.id.et_myPagePasswordCheck)
 
         // 수정 누르기 전에는 EditText 안되게 isEnabled로 비활성화
+        // ID, 닉네임은 항상 비활성화(수정 불가)
         myPageId.isEnabled = false
         myPageName.isEnabled = false
         myPageStartupField.isEnabled = false
@@ -69,7 +53,6 @@ class MyPageActivity : AppCompatActivity() {
 //        Toast.makeText(this, "테스트. 아이디 : ${userId}, 비번 : ${com.example.article.UserManager.findUser(userId.toString())?.password} ", Toast.LENGTH_SHORT).show()
 //        테스트 통과
 
-
         // 처음 마이페이지 들어갔을 때(수정 전) 항목별 값은 DB에서 끌어온 값으로 표시
         myPageId.setText(myUser?.Id.toString())
         myPageName.setText(myUser?.nickname.toString())
@@ -82,8 +65,6 @@ class MyPageActivity : AppCompatActivity() {
             btn_myPageEdit.isInvisible = true
             btn_myPageSave.isInvisible = false
 
-            myPageId.isEnabled = true
-            myPageName.isEnabled = true
             myPageStartupField.isEnabled = true
             myPagePassword.isEnabled = true
             myPagePasswordCheck.isEnabled = true
@@ -92,35 +73,43 @@ class MyPageActivity : AppCompatActivity() {
 
                 if (myPageName.text.isEmpty() == true || myPageStartupField.text.isEmpty() == true || myPagePassword.text.isEmpty() == true || myPagePasswordCheck.text.isEmpty()) {
                     Toast.makeText(this, "입력되지 않은 정보가 있습니다.", Toast.LENGTH_SHORT).show()
-                }
-
-                if (myPagePassword != myPagePasswordCheck) {
-                    Toast.makeText(this, "비밀번호가 일치하지 않습니다.", Toast.LENGTH_SHORT).show()
                 } else {
-                    myUser?.Id = myPageId.text.toString()
-                    myUser?.password = myPagePassword.text.toString()
-                    myUser?.nickname = myPageName.text.toString()
-                    myUser?.startupField = myPageStartupField.text.toString()
+                    if (myPagePassword.text.toString() != myPagePasswordCheck.text.toString()) {
+                        Toast.makeText(this, "비밀번호가 일치하지 않습니다.", Toast.LENGTH_SHORT).show()
+                    } else {
+                        myUser?.Id = myPageId.text.toString()
+                        myUser?.password = myPagePassword.text.toString()
+                        myUser?.nickname = myPageName.text.toString()
+                        myUser?.startupField = myPageStartupField.text.toString()
 
-                    Toast.makeText(this, "수정사항이 저장되었습니다.", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(this, "수정사항이 저장되었습니다.", Toast.LENGTH_SHORT).show()
 
-                    btn_myPageEdit.isInvisible = false
-                    btn_myPageSave.isInvisible = true
+                        btn_myPageEdit.isInvisible = false
+                        btn_myPageSave.isInvisible = true
 
-                    myPageId.isEnabled = false
-                    myPageName.isEnabled = false
-                    myPageStartupField.isEnabled = false
-                    myPagePassword.isEnabled = false
-                    myPagePasswordCheck.isEnabled = false
+                        myPageId.isEnabled = false
+                        myPageName.isEnabled = false
+                        myPageStartupField.isEnabled = false
+                        myPagePassword.isEnabled = false
+                        myPagePasswordCheck.isEnabled = false
+                    }
                 }
             }
         }
 
+        // 회원탈퇴 버튼
         btn_withdrawl.setOnClickListener{
-            val withdrawlCheckPopup = findViewById<ConstraintLayout>(R.id.withdrawl_popup)
-            withdrawlCheckPopup.setOnClickListener{
-                showPopup()
-            }
+            AlertDialog.Builder(this)
+                .setTitle("진짜로 회원탈퇴?")
+                .setMessage("진심으로 회원탈퇴하시겠습니까?😭")
+                .setPositiveButton("탈퇴") { dialog, which ->
+                    val intentToSignIn = Intent(this, SignInActivity::class.java)
+                    UserManager.deleteUser(userId.toString())
+                    startActivity(intentToSignIn)
+                }
+                .setNegativeButton("취소") { dialog, which ->
+                }
+                .show()
         }
 
         btn_back.setOnClickListener{

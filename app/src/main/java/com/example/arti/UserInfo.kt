@@ -20,4 +20,7 @@ object UserManager {
     fun findUser(Id_: String): User? {
         return users.find { it.Id == Id_ }
     }
+    fun deleteUser(Id__: String) {
+        users.remove(users.find { it.Id == Id__ })
+    }
 }

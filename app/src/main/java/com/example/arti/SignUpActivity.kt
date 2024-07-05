@@ -39,34 +39,49 @@ class SignUpActivity : AppCompatActivity() {
 
         val idcheck = findViewById<TextView>(R.id.id_check)
         idcheck.setOnClickListener {
-            if (userID.text.toString() in existingID) {
-                isUserIDAvailable = false
-                Toast.makeText(this, "중복된 아이디 입니다.", Toast.LENGTH_SHORT).show()
+            if (userID.text.toString().isBlank() == false) {
+                if (userID.text.toString() in existingID) {
+                    isUserIDAvailable = false
+                    Toast.makeText(this, "중복된 아이디 입니다.", Toast.LENGTH_SHORT).show()
+                } else {
+                    isUserIDAvailable = true
+                    Toast.makeText(this, "사용가능한 아이디 입니다.", Toast.LENGTH_SHORT).show()
+                }
             } else {
-                isUserIDAvailable = true
-                Toast.makeText(this, "사용가능한 아이디 입니다.", Toast.LENGTH_SHORT).show()
+                isUserIDAvailable = false
+                Toast.makeText(this, "공백은 입력이 불가합니다.", Toast.LENGTH_SHORT).show()
             }
         }
 
         val passwordcheck = findViewById<TextView>(R.id.pw_check_bt)
         passwordcheck.setOnClickListener {
-            if (userPassword.text.toString() == userPasswordCallback.text.toString()) {
-                isPasswordConfirmed = true
-                Toast.makeText(this, "비밀번호가 확인됐습니다.", Toast.LENGTH_SHORT).show()
+            if (userPassword.text.toString().isBlank() == false) {
+                if (userPassword.text.toString() == userPasswordCallback.text.toString()) {
+                    isPasswordConfirmed = true
+                    Toast.makeText(this, "비밀번호가 확인됐습니다.", Toast.LENGTH_SHORT).show()
+                } else {
+                    isPasswordConfirmed = false
+                    Toast.makeText(this, "입력된 비밀번호가 다릅니다. 다시 입력해주세요.", Toast.LENGTH_SHORT).show()
+                }
             } else {
                 isPasswordConfirmed = false
-                Toast.makeText(this, "입력된 비밀번호가 다릅니다. 다시 입력해주세요.", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "공백은 입력이 불가합니다.", Toast.LENGTH_SHORT).show()
             }
         }
 
         val usernamecheck = findViewById<TextView>(R.id.username_check)
         usernamecheck.setOnClickListener {
-            if (username.text.toString() in existingUsername) {
-                isUsernameAvailable = false
-                Toast.makeText(this, "중복된 닉네임이 있습니다.", Toast.LENGTH_SHORT).show()
+            if (username.text.toString().isBlank() == false) {
+                if (username.text.toString() in existingUsername) {
+                    isUsernameAvailable = false
+                    Toast.makeText(this, "중복된 닉네임이 있습니다.", Toast.LENGTH_SHORT).show()
+                } else {
+                    isUsernameAvailable = true
+                    Toast.makeText(this, "사용가능합니다.", Toast.LENGTH_SHORT).show()
+                }
             } else {
-                isUsernameAvailable = true
-                Toast.makeText(this, "사용가능합니다.", Toast.LENGTH_SHORT).show()
+                isUsernameAvailable = false
+                Toast.makeText(this, "공백은 입력이 불가합니다.", Toast.LENGTH_SHORT).show()
             }
         }
 
