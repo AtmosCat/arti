@@ -31,10 +31,12 @@
         app:layout_constraintTop_toTopOf="parent" >
 
         <ImageView
-            android:id="@+id/imageView4"
+            android:id="@+id/iv_signUpBack"
             android:layout_width="20dp"
             android:layout_height="30dp"
             android:layout_gravity="center_vertical"
+            android:clickable="true"
+            android:focusable="true"
             android:layout_marginStart="10dp"
             app:srcCompat="@drawable/back" />
     </FrameLayout>

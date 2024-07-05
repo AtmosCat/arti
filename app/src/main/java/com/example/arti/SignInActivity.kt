@@ -15,6 +15,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.article.User
+import com.example.article.UserManager
 
 class SignInActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -31,86 +32,57 @@ class SignInActivity : AppCompatActivity() {
         val btn_loginSignUp = findViewById<Button>(R.id.btn_loginSignup)
 
         var user1ID = intent.getStringExtra("userid")
-        var user1PW = intent.getStringExtra("userpw")
-        var user1Name = intent.getStringExtra("user_name")
-        var user1StartupField = intent.getStringExtra("user_startupField")
-        var existingID = intent.getStringArrayExtra("existingID")
-        var existingUsername = intent.getStringArrayExtra("existingUsername")
-//        var user1 = intent.getParce(user1)
-//        var userList = intent.getParcelableArrayListExtra<User>("userList")
+        var user1Password = UserManager.findUser(user1ID.toString())?.password
+
+        enteredId.setText(user1ID)
+        enteredPw.setText(user1Password)
 
         // ID 정보가 DB에 없거나, PW가 틀렸거나, 빈칸이 있으면 오류 토스트
         var loginOK1 = false
         var loginOK2 = false
-        var loginOK3 = false
 
-        btn_loginSignIn.setOnClickListener{
-            if (existingID?.contains(enteredId.text.toString()) != false){
-                Toast.makeText(this, "존재하지 않는 아이디입니다.", Toast.LENGTH_SHORT).show()
-            } else loginOK1 = true
-            }
+        btn_loginSignUp.setOnClickListener {
+            val intent00 = Intent(this, SignUpActivity::class.java)
+            startActivity(intent00)
+        }
 
-            if (enteredId.text.toString() == user1ID) {
-                if (enteredPw.text.toString() != user1PW) {
-                    Toast.makeText(this, "비밀번호가 틀렸습니다.", Toast.LENGTH_SHORT).show()
-                } else loginOK2 = true
-            }
-
-            if (enteredId.text.isEmpty() == true || enteredPw.text.isEmpty() == true){
+        btn_loginSignIn.setOnClickListener {
+            if (enteredId.text.isEmpty() == true || enteredPw.text.isEmpty() == true) {
                 Toast.makeText(this, "모든 항목을 입력해주세요.", Toast.LENGTH_SHORT).show()
-            } else loginOK3 = true
+            } else loginOK1 = true
 
-            if (loginOK1 == true && loginOK2 == true && loginOK3 == true) {
-                Toast.makeText(this, "로그인 성공!", Toast.LENGTH_SHORT).show()
-                val intent = Intent(this, MainViewActivity::class.java)
-                intent.putExtra("user1Id", user1ID.toString())
-                intent.putExtra("user1Pw", user1PW.toString())
-                intent.putExtra("user1Name", user1Name.toString())
-                intent.putExtra("user1StartupField", user1StartupField.toString())
-                startActivity(intent)
+            var matchingId = UserManager.findUser(enteredId.text.toString())
 
-                val intent2 = Intent(this, MyPageActivity::class.java)
-                intent2.putExtra("user1Id", user1ID.toString())
-                intent2.putExtra("user1Pw", user1PW.toString())
-                intent2.putExtra("user1Name", user1Name.toString())
-                intent2.putExtra("user1StartupField", user1StartupField.toString())
-                startActivity(intent2)
-            }
-
-//            btn_loginSignIn.setOnClickListener{
-//                val intent2 = Intent(this, MyPageActivity::class.java)
-//                intent2.putExtra("user1Id", user1ID.toString())
-//                intent2.putExtra("user1Pw", user1PW.toString())
-//                intent2.putExtra("user1Name", user1Name.toString())
-//                intent2.putExtra("user1StartupField", user1StartupField.toString())
-//            }
-
-        // 회원가입에서 넘어오면 알아서 ID, PW 입력
-        lateinit var resultLauncher: ActivityResultLauncher<Intent>
-
-        resultLauncher =
-            registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
-                if (result.resultCode == Activity.RESULT_OK) {
-                    val id = result.data?.getStringExtra("userid") ?: ""
-                    val pw = result.data?.getStringExtra("userpw") ?: ""
-                    enteredId.setText(id)
-                    enteredPw.setText(pw)
+            if (matchingId == null) {
+                Toast.makeText(this, "존재하지 않는 아이디입니다.", Toast.LENGTH_SHORT).show()
+            } else {
+                if (matchingId.password != enteredPw.text.toString()) {
+                    Toast.makeText(this, "비밀번호가 틀렸습니다.", Toast.LENGTH_SHORT).show()
+                } else {
+                    loginOK2 = true
                 }
             }
 
-        btn_loginSignUp.setOnClickListener{
-            val intent = Intent(this, SignUpActivity::class.java)
-            startActivity(intent)
-            resultLauncher.launch(intent)
+            if (loginOK1 == true && loginOK2 == true) {
+                Toast.makeText(this, "로그인 성공!", Toast.LENGTH_SHORT).show()
+                val intent55 = Intent(this, MainViewActivity::class.java)
+                intent55.putExtra("user1Id", user1ID.toString())
+                startActivity(intent55)
+            }
         }
+
+
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
+            v.setPadding(
+                systemBars.left,
+                systemBars.top,
+                systemBars.right,
+                systemBars.bottom
+            )
             insets
-        }
-
-
-        }
-
+                }
     }
+}
+

@@ -25,7 +25,7 @@ object ContentsManager{
         createContents("점심호랑이", "20개 이상의 제품을 개발이 필요한 이유")
         createContents("대기권고양이", "비행기 무덤서 전기차 태어난다…광산 마을서 자란 그녀의 결심[월드콘]")
         createContents("옥수수수염차", "13년째 게이미피케이션 끝판왕 ‘듀오링고’")
-        createContents("바질대장", "스파르타는 강의를 증설하라!")
+        createContents("바질대장", "전체 투자 금액 40% 늘었지만…우려는?")
         createContents("챠챠", "AI 시대 각광받을 직업과 필요한 업무 능력")
 
         myContents[0].reason = "구체적인 아이템들이 성장한 과정을 보기에 좋은 아티클"

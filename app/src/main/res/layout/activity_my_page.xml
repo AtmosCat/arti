@@ -190,7 +190,7 @@
         android:id="@+id/btn_withdrawl"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="80dp"
+        android:layout_marginBottom="50dp"
         android:backgroundTint="#FFFFFF"
         android:paddingLeft="105dp"
         android:paddingRight="105dp"
@@ -273,16 +273,6 @@
     <!--        app:layout_constraintEnd_toEndOf="@+id/tv_withdrawlDoubleCheck2"-->
     <!--        app:layout_constraintStart_toStartOf="@+id/tv_withdrawlDoubleCheck2"-->
     <!--        app:layout_constraintTop_toTopOf="@+id/tv_withdrawlDoubleCheck2" />-->
-
-    <Button
-        android:id="@+id/btn_withdrawlCheckPopup"
-        android:layout_width="250dp"
-        android:layout_height="150dp"
-        android:text="Example"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
         android:id="@+id/iv_backButton"
