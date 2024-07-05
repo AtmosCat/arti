@@ -31,7 +31,7 @@
                 android:layout_margin="4dp"
                 android:background="@drawable/roundbackground"
                 android:clipToOutline="true"
-                android:scaleType="center"
+                android:scaleType="centerCrop"
                 android:src="@drawable/top1" />
 
             <ImageButton
@@ -41,8 +41,8 @@
                 android:layout_margin="4dp"
                 android:background="@drawable/roundbackground"
                 android:clipToOutline="true"
-                android:scaleType="center"
-                android:src="@drawable/top1"/>
+                android:scaleType="centerCrop"
+                android:src="@drawable/top2"/>
 
             <ImageButton
                 android:id="@+id/horizontalScrollViewButton3"
@@ -51,8 +51,8 @@
                 android:layout_margin="4dp"
                 android:background="@drawable/roundbackground"
                 android:clipToOutline="true"
-                android:scaleType="center"
-                android:src="@drawable/top1" />
+                android:scaleType="centerCrop"
+                android:src="@drawable/top3" />
 
             <ImageButton
                 android:id="@+id/horizontalScrollViewButton4"
@@ -61,8 +61,8 @@
                 android:layout_margin="4dp"
                 android:background="@drawable/roundbackground"
                 android:clipToOutline="true"
-                android:scaleType="center"
-                android:src="@drawable/top1"/>
+                android:scaleType="centerCrop"
+                android:src="@drawable/top4"/>
 
         </LinearLayout>
     </HorizontalScrollView>
@@ -151,6 +151,7 @@
                     android:layout_marginStart="16dp"
                     android:layout_marginBottom="16dp"
                     android:text="조별과제 기초주제"
+                    android:textStyle="bold"
                     android:textColor="#FFFFFF"
                     android:textSize="30dp"
                     android:maxLines="1"
@@ -211,6 +212,7 @@
                     android:layout_marginBottom="16dp"
                     android:text="조별과제 기초주제"
                     android:textColor="#FFFFFF"
+                    android:textStyle="bold"
                     android:textSize="30dp"
                     android:maxLines="1"
                     app:layout_constraintBottom_toBottomOf="@+id/imageButton2"
@@ -269,6 +271,7 @@
                     android:layout_marginStart="16dp"
                     android:layout_marginBottom="16dp"
                     android:text="조별과제 기초주제"
+                    android:textStyle="bold"
                     android:textColor="#FFFFFF"
                     android:textSize="30dp"
                     android:maxLines="1"
@@ -328,6 +331,7 @@
                     android:layout_marginStart="16dp"
                     android:layout_marginBottom="16dp"
                     android:text="조별과제 기초주제"
+                    android:textStyle="bold"
                     android:textColor="#FFFFFF"
                     android:textSize="30dp"
                     android:maxLines="1"
@@ -387,6 +391,7 @@
                     android:layout_marginStart="16dp"
                     android:layout_marginBottom="16dp"
                     android:text="조별과제 기초주제"
+                    android:textStyle="bold"
                     android:textColor="#FFFFFF"
                     android:textSize="30dp"
                     android:maxLines="1"

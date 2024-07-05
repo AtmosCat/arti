@@ -4,6 +4,8 @@ import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.widget.ImageButton
+import android.widget.ImageView
+import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.activity.result.ActivityResultLauncher
 import androidx.appcompat.app.AppCompatActivity
@@ -23,9 +25,6 @@ class MainViewActivity : AppCompatActivity() {
             insets
         }
 
-        //(경고!!: 앱 실행 후 상단 스크롤 버튼 누르지 마세요 ㅠㅠ.. 궁금해도 누르지마세요 두번 시도 했는데 두번 다 컴터 꺼졌어요..)
-        //(경고!!: 앱 실행 후 상단 스크롤 버튼 누르지 마세요 ㅠㅠ.. 궁금해도 누르지마세요 두번 시도 했는데 두번 다 컴터 꺼졌어요..)
-
         // 상단 가로 스크롤 버튼
         val topImageButton = arrayOf(
             findViewById<ImageButton>(R.id.horizontalScrollViewButton1),
@@ -34,19 +33,16 @@ class MainViewActivity : AppCompatActivity() {
             findViewById<ImageButton>(R.id.horizontalScrollViewButton4)
         )
 
-        // 다른 인터넷 사이트로 연결 (문제: 인터넷 연결은 되서 구글까지 뜨는데, 앱 실행하다가 컴퓨터가 꺼져요.)
-        //(경고!!: 앱 실행 후 상단 스크롤 버튼 누르지 마세요 ㅠㅠ.. 궁금해도 누르지마세요 두번 시도 했는데 두번 다 컴터 꺼졌어요..)
-
         fun openWebPage(url:String){
             val uriIntent = Intent(Intent.ACTION_VIEW,Uri.parse(url))
             startActivity(uriIntent)
         }
 
         val urls = arrayOf(
-            "https://www.unicornfactory.co.kr/", //유니콘팩토리
-            "https://maily.so/unsexybusinesskr", //언섹시비즈니스
+            "https://newneek.co/", //뉴닉
             "https://oneoneone.kr/homefeed", //일일일
-            "https://newneek.co/" //뉴닉
+            "https://www.unicornfactory.co.kr/", //유니콘팩토리
+            "https://maily.so/unsexybusinesskr" //언섹시비즈니스
         )
 
         for ((index, button) in topImageButton.withIndex()){
@@ -57,72 +53,50 @@ class MainViewActivity : AppCompatActivity() {
             }
         }
 
-
-        /// 은택, 허민이 테스트를 위해 버튼 하나만 뚫겠습니다
-        var btnContents1 = findViewById<ImageButton>(R.id.imageButton1)
-        var btnContents2 = findViewById<ImageButton>(R.id.imageButton2)
-        var btnContents3 = findViewById<ImageButton>(R.id.imageButton3)
-        var btnContents4 = findViewById<ImageButton>(R.id.imageButton4)
-        var btnContents5 = findViewById<ImageButton>(R.id.imageButton5)
-
-        btnContents1.setOnClickListener {
-            val intentContents = Intent(this, ContentsActivity::class.java)
-            intentContents.putExtra("index", 0) // index 값만 EXTRA로 넘겨주면 어떤 글인지 식별가능
-            startActivity(intentContents)
-            }
-
-        btnContents2.setOnClickListener {
-            val intentContents = Intent(this, ContentsActivity::class.java)
-            intentContents.putExtra("index", 1) // index 값만 EXTRA로 넘겨주면 어떤 글인지 식별가능
-            startActivity(intentContents)
-        }
-
-        btnContents3.setOnClickListener {
-            val intentContents = Intent(this, ContentsActivity::class.java)
-            intentContents.putExtra("index", 2) // index 값만 EXTRA로 넘겨주면 어떤 글인지 식별가능
-            startActivity(intentContents)
-        }
-
-        btnContents4.setOnClickListener {
-            val intentContents = Intent(this, ContentsActivity::class.java)
-            intentContents.putExtra("index", 3) // index 값만 EXTRA로 넘겨주면 어떤 글인지 식별가능
-            startActivity(intentContents)
-        }
-
-        btnContents5.setOnClickListener {
-            val intentContents = Intent(this, ContentsActivity::class.java)
-            intentContents.putExtra("index", 4) // index 값만 EXTRA로 넘겨주면 어떤 글인지 식별가능
-            startActivity(intentContents)
-        }
-
-
-
-
-
-//
 //        // 마이 페이지 버튼
 //        val myPageButton = findViewById<ImageButton>(R.id.myPageButton)
 //        myPageButton.setOnClickListener {
 //            val myIntent1 = Intent(this, myPageActivity::class.java)
 //            resultLauncher.launch(myIntent1)
 //        }
-//
-//        // 하단 세로 스크롤 버튼
-//        val bottomImageButton = arrayOf(
-//            findViewById<ImageButton>(R.id.imageButton1),
-//            findViewById<ImageButton>(R.id.imageButton2),
-//            findViewById<ImageButton>(R.id.imageButton3),
-//            findViewById<ImageButton>(R.id.imageButton4),
-//            findViewById<ImageButton>(R.id.imageButton5)
-//        )
-//
-//        // 다른 상세페이지 동일하게 하나만 연결할게요~
-//        for(button in bottomImageButton){
-//            button.setOnClickListener {
-//                val myIntent2 = Intent(this, 다른상세페이지::class.java)
-//                resultLauncher.launch(myIntent2)
-//            }
-//        }
 
+
+        // 하단 세로 스크롤 버튼
+        val bottomImageButton = arrayOf(
+            findViewById<ImageView>(R.id.imageButton1),
+            findViewById<ImageView>(R.id.imageButton2),
+            findViewById<ImageView>(R.id.imageButton3),
+            findViewById<ImageView>(R.id.imageButton4),
+            findViewById<ImageView>(R.id.imageButton5)
+        )
+
+        val editorContents = arrayOf(
+            findViewById<TextView>(R.id.text1),
+            findViewById<TextView>(R.id.text3),
+            findViewById<TextView>(R.id.text5),
+            findViewById<TextView>(R.id.text7),
+            findViewById<TextView>(R.id.text9),
+        )
+
+        val titleContents = arrayOf(
+            findViewById<TextView>(R.id.text2),
+            findViewById<TextView>(R.id.text4),
+            findViewById<TextView>(R.id.text6),
+            findViewById<TextView>(R.id.text8),
+            findViewById<TextView>(R.id.text10),
+        )
+
+        for((index, button) in bottomImageButton.withIndex()){
+            button.setOnClickListener {
+                val intentContents = Intent(this, ContentsActivity::class.java)
+                intentContents.putExtra("index", index) // index 값만 EXTRA로 넘겨주면 어떤 글인지 식별가능
+                startActivity(intentContents)
+            }
+            ContentsManager.createDefaultContents()
+            bottomImageButton[index].setImageResource(ContentsManager.myContents[index].titleImage)
+
+            editorContents[index].setText("${ContentsManager.myContents[index]._editor}의 추천아티클 ")
+            titleContents[index].setText(ContentsManager.myContents[index]._title)
+        }
     }
 }
