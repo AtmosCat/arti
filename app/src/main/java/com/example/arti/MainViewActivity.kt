@@ -56,9 +56,11 @@ class MainViewActivity : AppCompatActivity() {
         // 마이 페이지 버튼
         val myPageButton = findViewById<ImageButton>(R.id.myPageButton)
         myPageButton.setOnClickListener {
-            val myIntent1 = Intent(this, MyPageActivity::class.java)
-            resultLauncher.launch(myIntent1)
+            val myIntent123 = Intent(this, MyPageActivity::class.java)
+//            resultLauncher.launch(myIntent1)
+            startActivity(myIntent123)
         }
+
 
 
         // 하단 세로 스크롤 버튼

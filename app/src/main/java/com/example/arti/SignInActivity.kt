@@ -44,21 +44,20 @@ class SignInActivity : AppCompatActivity() {
         var loginOK2 = false
         var loginOK3 = false
 
-        btn_loginSignIn.setOnClickListener{
-            if (existingID?.contains(enteredId.text.toString()) != false){
-                Toast.makeText(this, "존재하지 않는 아이디입니다.", Toast.LENGTH_SHORT).show()
+        btn_loginSignIn.setOnClickListener {
+            if (enteredId.text.isEmpty() == true || enteredPw.text.isEmpty() == true) {
+                Toast.makeText(this, "모든 항목을 입력해주세요.", Toast.LENGTH_SHORT).show()
             } else loginOK1 = true
-            }
+
+            if (existingID?.contains(enteredId.text.toString()) == false) {
+                Toast.makeText(this, "존재하지 않는 아이디입니다.", Toast.LENGTH_SHORT).show()
+            } else loginOK2 = true
 
             if (enteredId.text.toString() == user1ID) {
                 if (enteredPw.text.toString() != user1PW) {
                     Toast.makeText(this, "비밀번호가 틀렸습니다.", Toast.LENGTH_SHORT).show()
-                } else loginOK2 = true
+                } else loginOK3 = true
             }
-
-            if (enteredId.text.isEmpty() == true || enteredPw.text.isEmpty() == true){
-                Toast.makeText(this, "모든 항목을 입력해주세요.", Toast.LENGTH_SHORT).show()
-            } else loginOK3 = true
 
             if (loginOK1 == true && loginOK2 == true && loginOK3 == true) {
                 Toast.makeText(this, "로그인 성공!", Toast.LENGTH_SHORT).show()
@@ -76,6 +75,7 @@ class SignInActivity : AppCompatActivity() {
                 intent2.putExtra("user1StartupField", user1StartupField.toString())
                 startActivity(intent2)
             }
+        }
 
 //            btn_loginSignIn.setOnClickListener{
 //                val intent2 = Intent(this, MyPageActivity::class.java)
@@ -87,7 +87,6 @@ class SignInActivity : AppCompatActivity() {
 
         // 회원가입에서 넘어오면 알아서 ID, PW 입력
         lateinit var resultLauncher: ActivityResultLauncher<Intent>
-
         resultLauncher =
             registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
                 if (result.resultCode == Activity.RESULT_OK) {
@@ -98,7 +97,7 @@ class SignInActivity : AppCompatActivity() {
                 }
             }
 
-        btn_loginSignUp.setOnClickListener{
+        btn_loginSignUp.setOnClickListener {
             val intent = Intent(this, SignUpActivity::class.java)
             startActivity(intent)
             resultLauncher.launch(intent)
@@ -109,8 +108,5 @@ class SignInActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
-
-
-        }
-
     }
+}
