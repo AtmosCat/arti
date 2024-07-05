@@ -77,7 +77,7 @@
                     android:layout_marginTop="35dp"
                     android:clickable="true"
                     android:src="@drawable/btn_back"
-                    android:tint="@color/white" />
+                    android:tint="#00E2FF" />
             </RelativeLayout>
 
 
