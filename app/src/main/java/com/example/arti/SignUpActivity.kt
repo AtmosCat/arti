@@ -9,6 +9,7 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
+import com.example.article.UserInfo
 
 class SignUpActivity : AppCompatActivity() {
     private var isUserIDAvailable = false
@@ -25,6 +26,8 @@ class SignUpActivity : AppCompatActivity() {
         val userPassword = findViewById<EditText>(R.id.edit_text_PW)
         val userPasswordCallback = findViewById<EditText>(R.id.edit_text_PW_check)
         val username = findViewById<EditText>(R.id.edit_username)
+
+        var user1 = UserInfo(userID.text.toString(), )
 
         val idcheck = findViewById<TextView>(R.id.id_check)
         idcheck.setOnClickListener {
