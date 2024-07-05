@@ -5,7 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MyPage">
+    tools:context=".MyPageActivity">
 
     <ImageView
         android:id="@+id/iv_myPageLogo"
@@ -31,16 +31,16 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/tv_myPageField"
+        android:id="@+id/tv_myPageName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="45dp"
-        android:layout_marginTop="340dp"
+        android:layout_marginTop="50dp"
         android:text="닉네임"
         android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/tv_myPageId" />
 
     <TextView
         android:id="@+id/tv_myPageStartupField"
@@ -52,7 +52,7 @@
         android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_myPageField" />
+        app:layout_constraintTop_toBottomOf="@+id/tv_myPageName" />
 
     <TextView
         android:id="@+id/tv_myPagePassword"
@@ -66,8 +66,35 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_myPageStartupField" />
 
+    <TextView
+        android:id="@+id/tv_myPageId"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="45dp"
+        android:layout_marginTop="280dp"
+        android:text="아이디"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/et_mypage_id"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <EditText
-        android:id="@+id/et_mypage_nickname"
+        android:id="@+id/et_mypage_id"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="60dp"
+        android:background="#EDEDED"
+        android:ems="10"
+        android:inputType="text"
+        android:padding="8dp"
+        android:text=""
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_myPageMain" />
+
+    <EditText
+        android:id="@+id/et_mypage_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="60dp"
@@ -76,9 +103,9 @@
         android:text="창업1조_개발"
         android:background="#EDEDED"
         android:padding="8dp"
-        app:layout_constraintBottom_toBottomOf="@+id/tv_myPageField"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_myPageName"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/tv_myPageField" />
+        app:layout_constraintTop_toTopOf="@+id/tv_myPageName" />
 
     <EditText
         android:id="@+id/et_myPageStartupField"

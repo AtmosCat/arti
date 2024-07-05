@@ -70,43 +70,43 @@
         android:id="@+id/PW_title"
         android:layout_width="70dp"
         android:layout_height="0dp"
-        android:layout_marginTop="36dp"
+        android:layout_marginTop="45dp"
         android:text="@string/password"
         android:textColor="@color/black"
         app:layout_constraintEnd_toStartOf="@+id/edit_text_PW"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintHorizontal_chainStyle="packed"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edit_text_id"
+        app:layout_constraintTop_toBottomOf="@+id/id_title"
         tools:ignore="HardcodedText" />
 
     <TextView
         android:id="@+id/PW_check"
         android:layout_width="70dp"
         android:layout_height="20dp"
-        android:layout_marginTop="20dp"
-        android:textColor="@color/black"
+        android:layout_marginTop="35dp"
         android:text="@string/passwordcheck"
 
+        android:textColor="@color/black"
         app:layout_constraintEnd_toStartOf="@+id/edit_text_PW_check"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintHorizontal_chainStyle="packed"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edit_text_PW"
+        app:layout_constraintTop_toBottomOf="@+id/PW_title"
         tools:ignore="HardcodedText" />
 
     <TextView
-        android:id="@+id/username"
+        android:id="@+id/tv_startUpField"
         android:layout_width="70dp"
         android:layout_height="20dp"
-        android:layout_marginTop="32dp"
-        android:text="@string/username"
+        android:layout_marginStart="55dp"
+        android:layout_marginTop="35dp"
+
+        android:text="창업분야"
         android:textColor="@color/black"
-        app:layout_constraintEnd_toStartOf="@+id/edit_username"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintHorizontal_chainStyle="packed"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edit_text_PW_check" />
+        app:layout_constraintTop_toBottomOf="@+id/username" />
 
     <EditText
         android:id="@+id/edit_text_id"
@@ -182,7 +182,6 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/PW_check"
         app:layout_constraintTop_toTopOf="@+id/PW_check"
-        app:layout_constraintVertical_bias="0.48"
         tools:ignore="LabelFor" />
 
 
@@ -207,6 +206,36 @@
         app:layout_constraintVertical_bias="0.676"
         tools:ignore="LabelFor" />
 
+    <EditText
+        android:id="@+id/edit_startUpField"
+        android:layout_width="210dp"
+        android:layout_height="44dp"
+        android:layout_marginEnd="55dp"
+        android:autofillHints="name"
+        android:background="@drawable/rounded_edittext_background"
+        android:hint="창업분야를 입력하세요."
+        android:inputType="textMultiLine"
+        android:padding="12dp"
+        android:textColorHint="@color/gray1"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_startUpField"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/tv_startUpField"
+        tools:ignore="LabelFor" />
+
+    <TextView
+        android:id="@+id/username"
+        android:layout_width="70dp"
+        android:layout_height="20dp"
+        android:layout_marginTop="30dp"
+        android:text="@string/username"
+        android:textColor="@color/black"
+        app:layout_constraintEnd_toStartOf="@+id/edit_username"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edit_text_PW_check" />
+
     <TextView
         android:id="@+id/username_check"
         android:layout_width="wrap_content"
@@ -223,7 +252,7 @@
         android:id="@+id/signup_button"
         android:layout_width="297dp"
         android:layout_height="51dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="80dp"
         android:background="@drawable/bt_round"
         android:text="@string/signup_button"
         android:textColor="@color/white"
