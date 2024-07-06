@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Article</string>
+    <string name="passwordcheck">Password_check</string>
+    <string name="password">Password</string>
+    <string name="logo">Logo</string>
+    <string name="signup_name">Sign up</string>
+    <string name="id">ID</string>
+    <string name="username">User name</string>
+    <string name="signup_button">Sign up</string>
+</resources>
