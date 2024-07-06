@@ -66,6 +66,7 @@ class MainViewActivity : AppCompatActivity() {
             myIntent123.putExtra("user1Id", user1Id) // 엑스트라에 아이디 담아서 넘겨요
 //            resultLauncher.launch(myIntent1)
             startActivity(myIntent123)
+            overridePendingTransition(R.transition.slide_in_right,R.transition.slide_out_left) // 화면 전환
         }
 
         // 하단 세로 스크롤 버튼
@@ -98,6 +99,7 @@ class MainViewActivity : AppCompatActivity() {
                 val intentContents = Intent(this, ContentsActivity::class.java)
                 intentContents.putExtra("index", index) // index 값만 EXTRA로 넘겨주면 어떤 글인지 식별가능
                 startActivity(intentContents)
+                overridePendingTransition(R.transition.slide_in_right,R.transition.slide_out_left) // 화면 전환
             }
             ContentsManager.createDefaultContents()
             bottomImageButton[index].setImageResource(ContentsManager.myContents[index].titleImage)
