@@ -1,0 +1,291 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MyPageActivity">
+
+    <ImageView
+        android:id="@+id/iv_myPageLogo"
+        android:layout_width="191dp"
+        android:layout_height="73dp"
+        android:layout_marginTop="150dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/article_logo" />
+
+    <TextView
+        android:id="@+id/tv_myPageMain"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="220dp"
+        android:text="마이페이지"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_myPageName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="45dp"
+        android:layout_marginTop="50dp"
+        android:text="닉네임"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_myPageId" />
+
+    <TextView
+        android:id="@+id/tv_myPageStartupField"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="45dp"
+        android:layout_marginTop="50dp"
+        android:text="창업분야"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_myPageName" />
+
+    <TextView
+        android:id="@+id/tv_myPagePassword"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="45dp"
+        android:layout_marginTop="50dp"
+        android:text="비밀번호"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_myPageStartupField" />
+
+    <TextView
+        android:id="@+id/tv_myPageId"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="45dp"
+        android:layout_marginTop="280dp"
+        android:text="아이디"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/et_mypage_id"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/et_mypage_id"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="60dp"
+        android:background="#EDEDED"
+        android:ems="10"
+        android:inputType="text"
+        android:padding="8dp"
+        android:text=""
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_myPageMain" />
+
+    <EditText
+        android:id="@+id/et_mypage_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="60dp"
+        android:ems="10"
+        android:inputType="text"
+        android:text="창업1조_개발"
+        android:background="#EDEDED"
+        android:padding="8dp"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_myPageName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/tv_myPageName" />
+
+    <EditText
+        android:id="@+id/et_myPageStartupField"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="60dp"
+        android:ems="10"
+        android:inputType="text"
+        android:text="교육"
+        android:background="#EDEDED"
+        android:padding="8dp"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_myPageStartupField"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/tv_myPageStartupField" />
+
+    <EditText
+        android:id="@+id/et_myPagePassword"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="60dp"
+        android:ems="10"
+        android:inputType="textPassword"
+        android:text="secret123"
+        android:background="#EDEDED"
+        android:padding="8dp"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_myPagePassword"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/tv_myPagePassword" />
+
+    <TextView
+        android:id="@+id/tv_myPagePasswordCheck"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="45dp"
+        android:layout_marginTop="50dp"
+        android:text="확인"
+        android:textSize="18sp"
+        android:textStyle="bold"
+
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_myPagePassword" />
+
+    <EditText
+        android:id="@+id/et_myPagePasswordCheck"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="60dp"
+        android:ems="10"
+        android:inputType="textPassword"
+        android:text="secret123"
+        android:background="#EDEDED"
+        android:padding="8dp"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_myPagePasswordCheck"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/tv_myPagePasswordCheck" />
+
+    <Button
+        android:id="@+id/btn_myPageEdit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="50dp"
+        android:paddingLeft="120dp"
+        android:paddingRight="120dp"
+        android:text="수정"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toTopOf="@+id/tv_withdrawlCheck"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_withdrawlCheck"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="14sp"
+        android:textColor="#9F9F9F"
+        android:text="정말 회원탈퇴하시겠어요? 진짜?"
+        app:layout_constraintBottom_toTopOf="@+id/btn_withdrawl"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/btn_withdrawl"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="50dp"
+        android:backgroundTint="#FFFFFF"
+        android:paddingLeft="105dp"
+        android:paddingRight="105dp"
+        android:text="회원탈퇴"
+        android:textColor="#9F9F9F"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/btn_myPageSave"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="50dp"
+        android:backgroundTint="#00A1FE"
+        android:paddingLeft="120dp"
+        android:paddingRight="120dp"
+        android:text="저장"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toTopOf="@+id/tv_withdrawlCheck"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <!--    <TextView-->
+    <!--        android:id="@+id/tv_withdrawlDoubleCheck"-->
+    <!--        android:layout_width="330dp"-->
+    <!--        android:layout_height="290dp"-->
+    <!--        android:background="@drawable/border1"-->
+    <!--        android:gravity="center"-->
+    <!--        android:text="회원탈퇴"-->
+    <!--        android:paddingBottom="130dp"-->
+    <!--        android:textColor="@color/black"-->
+    <!--        android:textStyle="bold"-->
+    <!--        app:layout_constraintBottom_toBottomOf="parent"-->
+    <!--        app:layout_constraintEnd_toEndOf="parent"-->
+    <!--        app:layout_constraintStart_toStartOf="parent"-->
+    <!--        app:layout_constraintTop_toTopOf="parent" />-->
+
+    <!--    <TextView-->
+    <!--        android:id="@+id/tv_withdrawlDoubleCheck2"-->
+    <!--        android:layout_width="300dp"-->
+    <!--        android:layout_height="260dp"-->
+    <!--        android:background="@drawable/border2"-->
+    <!--        android:gravity="center"-->
+    <!--        android:paddingBottom="60dp"-->
+    <!--        android:text="정말 회원탈퇴하시겠어요? 진짜?"-->
+    <!--        app:layout_constraintBottom_toBottomOf="@+id/tv_withdrawlDoubleCheck"-->
+    <!--        app:layout_constraintEnd_toEndOf="@+id/tv_withdrawlDoubleCheck"-->
+    <!--        app:layout_constraintStart_toStartOf="@+id/tv_withdrawlDoubleCheck"-->
+    <!--        app:layout_constraintTop_toTopOf="@+id/tv_withdrawlDoubleCheck" />-->
+
+    <!--    <Button-->
+    <!--        android:id="@+id/btn_withdrawlConfirm"-->
+    <!--        android:layout_width="wrap_content"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:layout_marginTop="100dp"-->
+    <!--        android:layout_marginEnd="100dp"-->
+    <!--        android:backgroundTint="@color/white"-->
+    <!--        android:text="탈퇴"-->
+    <!--        android:background="@drawable/border1"-->
+    <!--        android:textSize="14sp"-->
+    <!--        app:layout_constraintBottom_toBottomOf="@id/tv_withdrawlDoubleCheck2"-->
+    <!--        app:layout_constraintEnd_toEndOf="@+id/tv_withdrawlDoubleCheck2"-->
+    <!--        app:layout_constraintStart_toStartOf="@+id/tv_withdrawlDoubleCheck2"-->
+    <!--        app:layout_constraintTop_toTopOf="@+id/tv_withdrawlDoubleCheck2" />-->
+
+    <!--    <Button-->
+    <!--        android:id="@+id/btn_withdrawlCancel"-->
+    <!--        android:layout_width="wrap_content"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:layout_marginStart="100dp"-->
+    <!--        android:layout_marginTop="100dp"-->
+    <!--        android:backgroundTint="#00A0FD"-->
+    <!--        android:background="@drawable/border1"-->
+    <!--        android:text="취소"-->
+    <!--        android:textColor="@color/white"-->
+    <!--        app:layout_constraintBottom_toBottomOf="@+id/tv_withdrawlDoubleCheck2"-->
+    <!--        app:layout_constraintEnd_toEndOf="@+id/tv_withdrawlDoubleCheck2"-->
+    <!--        app:layout_constraintStart_toStartOf="@+id/tv_withdrawlDoubleCheck2"-->
+    <!--        app:layout_constraintTop_toTopOf="@+id/tv_withdrawlDoubleCheck2" />-->
+
+    <ImageView
+        android:id="@+id/iv_backButton"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="15dp"
+        android:clickable="true"
+        android:focusable="true"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/back"
+        app:tint = "#858585"/>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

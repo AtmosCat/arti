@@ -5,15 +5,406 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".MainViewActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
+    <!--상단 가로 스크롤 뷰-->
+    <HorizontalScrollView
+        android:id="@+id/scrollViewTop"
+        android:layout_width="288dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="52dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/myPageButton">
+
+        <!--수평 콘텐츠-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <ImageButton
+                android:id="@+id/horizontalScrollViewButton1"
+                android:layout_width="88dp"
+                android:layout_height="88dp"
+                android:layout_margin="4dp"
+                android:background="@drawable/roundbackground"
+                android:clipToOutline="true"
+                android:scaleType="centerCrop"
+                android:src="@drawable/top1" />
+
+            <ImageButton
+                android:id="@+id/horizontalScrollViewButton2"
+                android:layout_width="88dp"
+                android:layout_height="88dp"
+                android:layout_margin="4dp"
+                android:background="@drawable/roundbackground"
+                android:clipToOutline="true"
+                android:scaleType="centerCrop"
+                android:src="@drawable/top2"/>
+
+            <ImageButton
+                android:id="@+id/horizontalScrollViewButton3"
+                android:layout_width="88dp"
+                android:layout_height="88dp"
+                android:layout_margin="4dp"
+                android:background="@drawable/roundbackground"
+                android:clipToOutline="true"
+                android:scaleType="centerCrop"
+                android:src="@drawable/top3" />
+
+            <ImageButton
+                android:id="@+id/horizontalScrollViewButton4"
+                android:layout_width="88dp"
+                android:layout_height="88dp"
+                android:layout_margin="4dp"
+                android:background="@drawable/roundbackground"
+                android:clipToOutline="true"
+                android:scaleType="centerCrop"
+                android:src="@drawable/top4"/>
+
+        </LinearLayout>
+    </HorizontalScrollView>
+
+    <!-- myPageButton-->
+    <ImageButton
+        android:id="@+id/myPageButton"
+        android:layout_width="88dp"
+        android:layout_height="88dp"
+        android:layout_marginTop="55dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/mypage"
+        android:background="@drawable/roundbackground"
+        android:clipToOutline="true"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/scrollViewTop" />
+
+    <!--하단 세로 스크롤뷰-->
+    <ScrollView
+        android:id="@+id/scrollViewBottom"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="200dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@id/scrollViewTop">
+
+        <!--수직 콘텐츠-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center">
+
+            <!--수직 콘텐츠 요소1 -->
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/bottomView1"
+                android:layout_width="380dp"
+                android:layout_height="240dp"
+                android:layout_margin="4dp"
+                android:background="@drawable/round2background"
+                android:clipToOutline="true">
+
+                <!--Contents와 연결되는 이미지-->
+                <ImageView
+                    android:id="@+id/imageButton1"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/down1"
+                    app:layout_constraintBottom_toBottomOf="@+id/bottomView1"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"/>
+
+                <!--Contents이미지 위에 그라데이션 효과-->
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/gradient_bottom_thin"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"/>
+
+                <!--추천하는 사람-->
+                <TextView
+                    android:id="@+id/text1"
+                    android:layout_width="240dp"
+                    android:layout_height="40dp"
+                    android:layout_marginStart="16dp"
+                    android:text="아티클01"
+                    android:textStyle="bold"
+                    android:textSize="20dp"
+                    android:textColor="#FFFFFF"
+                    app:layout_constraintStart_toStartOf="@+id/imageButton1"
+                    app:layout_constraintBottom_toTopOf="@+id/text2"/>
+
+                <!--아티클 제목-->
+                <TextView
+                    android:id="@+id/text2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginEnd="16dp"
+                    android:layout_marginBottom="16dp"
+                    android:text="조별과제 기초주제"
+                    android:textStyle="bold"
+                    android:textColor="#FFFFFF"
+                    android:textSize="30dp"
+                    android:maxLines="2"
+                    app:layout_constraintBottom_toBottomOf="@+id/imageButton1"
+                    app:layout_constraintStart_toStartOf="@+id/imageButton1" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <!--수직 콘텐츠 요소2 -->
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/bottomView2"
+                android:layout_width="380dp"
+                android:layout_height="240dp"
+                android:layout_margin="4dp"
+                android:background="@drawable/round2background"
+                android:clipToOutline="true">
+
+                <!--Contents와 연결되는 이미지-->
+                <ImageView
+                    android:id="@+id/imageButton2"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/down1"
+                    app:layout_constraintBottom_toBottomOf="@+id/bottomView2"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"/>
+
+                <!--Contents이미지 위에 그라데이션 효과-->
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/gradient_bottom_thin"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"/>
+
+                <!--추천하는 사람-->
+                <TextView
+                    android:id="@+id/text3"
+                    android:layout_width="240dp"
+                    android:layout_height="40dp"
+                    android:layout_marginStart="16dp"
+                    android:text="아티클02"
+                    android:textStyle="bold"
+                    android:textSize="20dp"
+                    android:textColor="#FFFFFF"
+                    app:layout_constraintStart_toStartOf="@+id/imageButton2"
+                    app:layout_constraintBottom_toTopOf="@+id/text4"/>
+
+                <!--아티클 제목-->
+                <TextView
+                    android:id="@+id/text4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginEnd="16dp"
+                    android:layout_marginBottom="16dp"
+                    android:text="조별과제 기초주제"
+                    android:textColor="#FFFFFF"
+                    android:textStyle="bold"
+                    android:textSize="30dp"
+                    android:maxLines="2"
+                    app:layout_constraintBottom_toBottomOf="@+id/imageButton2"
+                    app:layout_constraintStart_toStartOf="@+id/imageButton2" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <!--수직 콘텐츠 요소3 -->
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/bottomView3"
+                android:layout_width="380dp"
+                android:layout_height="240dp"
+                android:layout_margin="4dp"
+                android:background="@drawable/round2background"
+                android:clipToOutline="true">
+
+                <!--Contents와 연결되는 이미지-->
+                <ImageView
+                    android:id="@+id/imageButton3"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/down1"
+                    app:layout_constraintBottom_toBottomOf="@+id/bottomView3"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"/>
+
+                <!--Contents이미지 위에 그라데이션 효과-->
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/gradient_bottom_thin"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"/>
+
+                <!--추천하는 사람-->
+                <TextView
+                    android:id="@+id/text5"
+                    android:layout_width="240dp"
+                    android:layout_height="40dp"
+                    android:layout_marginStart="16dp"
+                    android:text="아티클03"
+                    android:textStyle="bold"
+                    android:textSize="20dp"
+                    android:textColor="#FFFFFF"
+                    app:layout_constraintStart_toStartOf="@+id/imageButton3"
+                    app:layout_constraintBottom_toTopOf="@+id/text6"/>
+
+                <!--아티클 제목-->
+                <TextView
+                    android:id="@+id/text6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginEnd="16dp"
+                    android:layout_marginBottom="16dp"
+                    android:text="조별과제 기초주제"
+                    android:textStyle="bold"
+                    android:textColor="#FFFFFF"
+                    android:textSize="30dp"
+                    android:maxLines="2"
+                    app:layout_constraintBottom_toBottomOf="@+id/imageButton3"
+                    app:layout_constraintStart_toStartOf="@+id/imageButton3" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <!--수직 콘텐츠 요소4 -->
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/bottomView4"
+                android:layout_width="380dp"
+                android:layout_height="240dp"
+                android:layout_margin="4dp"
+                android:background="@drawable/round2background"
+                android:clipToOutline="true">
+
+                <!--Contents와 연결되는 이미지-->
+                <ImageView
+                    android:id="@+id/imageButton4"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/down1"
+                    app:layout_constraintBottom_toBottomOf="@+id/bottomView4"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"/>
+
+                <!--Contents이미지 위에 그라데이션 효과-->
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/gradient_bottom_thin"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"/>
+
+                <!--추천하는 사람-->
+                <TextView
+                    android:id="@+id/text7"
+                    android:layout_width="240dp"
+                    android:layout_height="40dp"
+                    android:layout_marginStart="16dp"
+                    android:text="아티클01"
+                    android:textStyle="bold"
+                    android:textSize="20dp"
+                    android:textColor="#FFFFFF"
+                    app:layout_constraintStart_toStartOf="@+id/imageButton4"
+                    app:layout_constraintBottom_toTopOf="@+id/text8"/>
+
+                <!--아티클 제목-->
+                <TextView
+                    android:id="@+id/text8"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginEnd="16dp"
+                    android:layout_marginBottom="16dp"
+                    android:text="조별과제 기초주제"
+                    android:textStyle="bold"
+                    android:textColor="#FFFFFF"
+                    android:textSize="30dp"
+                    android:maxLines="1"
+                    app:layout_constraintBottom_toBottomOf="@+id/imageButton4"
+                    app:layout_constraintStart_toStartOf="@+id/imageButton4" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <!--수직 콘텐츠 요소5 -->
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/bottomView5"
+                android:layout_width="380dp"
+                android:layout_height="240dp"
+                android:layout_margin="4dp"
+                android:background="@drawable/round2background"
+                android:clipToOutline="true">
+
+                <!--Contents와 연결되는 이미지-->
+                <ImageView
+                    android:id="@+id/imageButton5"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/down1"
+                    app:layout_constraintBottom_toBottomOf="@+id/bottomView5"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"/>
+
+                <!--Contents이미지 위에 그라데이션 효과-->
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/gradient_bottom_thin"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"/>
+
+                <!--추천하는 사람-->
+                <TextView
+                    android:id="@+id/text9"
+                    android:layout_width="240dp"
+                    android:layout_height="40dp"
+                    android:layout_marginStart="16dp"
+                    android:text="아티클01"
+                    android:textStyle="bold"
+                    android:textSize="20dp"
+                    android:textColor="#FFFFFF"
+                    app:layout_constraintStart_toStartOf="@+id/imageButton5"
+                    app:layout_constraintBottom_toTopOf="@+id/text10"/>
+
+                <!--아티클 제목-->
+                <TextView
+                    android:id="@+id/text10"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="16dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginBottom="16dp"
+                    android:text="조별과제 기초주제"
+                    android:textStyle="bold"
+                    android:textColor="#FFFFFF"
+                    android:textSize="30dp"
+                    android:maxLines="1"
+                    app:layout_constraintBottom_toBottomOf="@+id/imageButton5"
+                    app:layout_constraintStart_toStartOf="@+id/imageButton5" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </LinearLayout>
+    </ScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
